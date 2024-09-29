@@ -1,4 +1,3 @@
-
 const data = [
     {
         title:"What is the use of HTML?",
@@ -69,10 +68,12 @@ let allButtons  = document.querySelectorAll(".option")
 let myScore = document.querySelector("#score")
 allButtons.forEach(function(i){
     i.addEventListener("click", function(info){
+        //to remove the color again while going to next question
+        allButtons.forEach(btn=> btn.style.backgroundColor="")
         //Highlight the button while clicking
         i.style.backgroundColor = "green"
-        //to remove the color again while going to next question
-
+        
+        
         //Logic to capture the optiob name(A,B,C,D)
         //First we need to know on which button we clicked
         //On which ever the button you click that option value stored in info variable
@@ -95,9 +96,7 @@ console.log(score)
 nextButton.addEventListener("click", function(){
     //go to next question after click event
     
-  console.log(score)
+console.log(score)
     index++
-    loadQuestion(data[index])
-    
-    
+    loadQuestion(data[index])    
 })
