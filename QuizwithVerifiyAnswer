@@ -1,3 +1,4 @@
+
 const data = [
     {
         title:"What is the use of HTML?",
@@ -65,23 +66,36 @@ function loadQuestion(data1){
 loadQuestion(data[index])
 let score = 0
 let allButtons  = document.querySelectorAll(".option")
+let myScore = document.querySelector("#score")
 allButtons.forEach(function(i){
     i.addEventListener("click", function(info){
+        //Highlight the button while clicking
+        i.style.backgroundColor = "green"
+        //to remove the color again while going to next question
+
         //Logic to capture the optiob name(A,B,C,D)
         //First we need to know on which button we clicked
         //On which ever the button you click that option value stored in info variable
         let selectedAnswer = info.target.innerText//open console and check it you will get target inside that we will get innerText
-        if(data[index].Answer == SelectedAnswer){
+        if(data[index].Answer == selectedAnswer){
             //user selected correct Answer
             score++
+            console.log(score)
+        }
+        else{
+            console.log("Wrong Answer!")
         }
     })
+})
+
+submitButton.addEventListener("click",function(){
+    myScore.textContent = `Score is: ${score}`
 })
 console.log(score)
 nextButton.addEventListener("click", function(){
     //go to next question after click event
     
-    verifyAnswer();
+  console.log(score)
     index++
     loadQuestion(data[index])
     
